@@ -142,9 +142,11 @@ tr.total td { background: #fbeee4; font-weight: bold; }
   <h2 class="date-header">Tuesday, October 06, 2026</h2>
   <h3 class="post-title">The bigger refund vs. the bills that came with it</h3>
 
-  <p>The One Big Beautiful Bill Act was sold on bigger tax refunds, and refunds did go up. The
-  <a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS</a>
-  says the average refund this spring was <b>$3,276</b>, up from $2,939 last year. That is <b>$337 more</b>.</p>
+  <p>The One Big Beautiful Bill Act was sold on bigger tax refunds. The
+  <a href="https://taxfoundation.org/blog/tax-refunds-one-big-beautiful-bill-act/">Tax Foundation</a>
+  expected average refunds to rise by $300 to $1,000 this year. To be generous, we use the top of that
+  range: <b>$1,000 more</b>. (The <a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS</a>
+  reports the actual average went up by $337, from $2,939 to $3,276.)</p>
 
   <p>Here is what other policy choices have cost the same family.</p>
 
@@ -152,8 +154,8 @@ tr.total td { background: #fbeee4; font-weight: bold; }
     <tr><th>Item</th><th>Per household</th><th>Source</th></tr>
     <tr class="gain">
       <td>Bigger tax refund (OBBBA)</td>
-      <td class="amt">+$337</td>
-      <td class="small">IRS filing season statistics, average refund 2026 vs. 2025, through May 8.</td>
+      <td class="amt">+$1,000</td>
+      <td class="small">Tax Foundation, top of its $300 to $1,000 range. The IRS actual was +$337.</td>
     </tr>
     <tr>
       <td>Gas and diesel since the Iran war began</td>
@@ -167,12 +169,12 @@ tr.total td { background: #fbeee4; font-weight: bold; }
     </tr>
     <tr class="total">
       <td>Net for a typical family</td>
-      <td class="amt" id="row-net">&minus;$2,428</td>
+      <td class="amt" id="row-net">&minus;$1,765</td>
       <td></td>
     </tr>
   </table>
 
-  <div class="bigline" id="headline">The refund covered about 1 in every 8 dollars of these costs.</div>
+  <div class="bigline" id="headline">The refund covered about a third of these costs, even on the most generous estimate.</div>
 
   <p><b>And if you bought a house this year, it gets worse.</b> In January 2025,
   <a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae</a>
@@ -210,6 +212,7 @@ tr.total td { background: #fbeee4; font-weight: bold; }
   <h4>Sources</h4>
   <ul>
     <li><a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS filing stats</a></li>
+    <li><a href="https://taxfoundation.org/blog/tax-refunds-one-big-beautiful-bill-act/">Tax Foundation refunds</a></li>
     <li><a href="https://iranwarcost.watson.brown.edu/">Brown war cost tracker</a></li>
     <li><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/">Tax Foundation tariffs</a></li>
     <li><a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae, Jan 2025</a></li>
@@ -233,7 +236,7 @@ tr.total td { background: #fbeee4; font-weight: bold; }
 
 <script>
 // All inputs in one place so the numbers are easy to update.
-var REFUND_BOOST = 337;        // IRS avg refund 2026 ($3,276) minus 2025 ($2,939)
+var REFUND_BOOST = 1000;       // Tax Foundation high end ($300-$1,000); IRS actual was +$337
 var GAS_DIESEL = 945;          // Brown Iran War Energy Cost Tracker
 var TARIFFS = 1820;            // Tax Foundation, 2025 + 2026
 var RATE_FORECAST = 6.3;       // Fannie Mae Jan 2025 forecast, end of 2026
