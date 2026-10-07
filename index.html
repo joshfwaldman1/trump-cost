@@ -165,19 +165,14 @@ tr.total td { background: #fbeee4; font-weight: bold; }
       <td class="amt">&minus;$1,820</td>
       <td class="small">Tax Foundation: $1,000 in 2025 and $820 in 2026, after the Supreme Court struck down the IEEPA tariffs.</td>
     </tr>
-    <tr>
-      <td>Lost buying power from wages falling behind prices</td>
-      <td class="amt" id="row-wage">&minus;$565</td>
-      <td class="small">Real average weekly earnings fell 0.84% at an annual rate from February to August 2026 (BLS). Applied to average annual pay of $67,545 per worker.</td>
-    </tr>
     <tr class="total">
       <td>Net for a typical family</td>
-      <td class="amt" id="row-net">&minus;$2,993</td>
+      <td class="amt" id="row-net">&minus;$2,428</td>
       <td></td>
     </tr>
   </table>
 
-  <div class="bigline" id="headline">The refund covered about 1 in every 10 dollars of these costs.</div>
+  <div class="bigline" id="headline">The refund covered about 1 in every 8 dollars of these costs.</div>
 
   <p><b>And if you bought a house this year, it gets worse.</b> In January 2025,
   <a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae</a>
@@ -189,7 +184,6 @@ tr.total td { background: #fbeee4; font-weight: bold; }
 
   <div class="calc">
     <b>Do your own math</b>
-    <label><input type="checkbox" id="earner2"> Two people in our household work</label>
     <label><input type="checkbox" id="mortgage"> We took out a mortgage this year</label>
     <label style="margin-left:20px">Loan amount: $<input type="text" id="loan" value="330000"></label>
     <p style="margin:8px 0 0" id="calc-out"></p>
@@ -197,12 +191,11 @@ tr.total td { background: #fbeee4; font-weight: bold; }
 
   <p><b>A note on the mortgage line.</b> Higher rates are partly the war and partly the deficit. The
   administration's answer, from Kevin Hassett and others, is that long-term rates rose because investors
-  expect faster growth. If that were the main story, you would expect stronger real wages. The wage line
-  above says otherwise.</p>
+  expect faster growth.</p>
 
   <p class="small"><b>Fine print.</b> The periods don't all match. Gas covers the war so far. Tariffs cover
-  2025 and 2026. Wages are an annual rate. The refund is one filing season. Nothing is double-counted, but
-  this is a rough household tally, not a single model. The wage figure is per worker, not per household.</p>
+  2025 and 2026. The mortgage line is per year. The refund is one filing season. Nothing is double-counted, but
+  this is a rough household tally, not a single model.</p>
 
   <div class="post-footer">
     posted by Josh at 9:14 AM | <a href="#">0 comments</a> | <a href="#">permalink</a>
@@ -221,7 +214,6 @@ tr.total td { background: #fbeee4; font-weight: bold; }
     <li><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/">Tax Foundation tariffs</a></li>
     <li><a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae, Jan 2025</a></li>
     <li><a href="https://www.freddiemac.com/pmms">Freddie Mac PMMS</a></li>
-    <li><a href="https://www.bls.gov/ces/">BLS earnings</a></li>
   </ul>
 
   <h4>Links</h4>
@@ -244,7 +236,6 @@ tr.total td { background: #fbeee4; font-weight: bold; }
 var REFUND_BOOST = 337;        // IRS avg refund 2026 ($3,276) minus 2025 ($2,939)
 var GAS_DIESEL = 945;          // Brown Iran War Energy Cost Tracker
 var TARIFFS = 1820;            // Tax Foundation, 2025 + 2026
-var WAGE_PER_WORKER = 565;     // 0.84% annualized real loss x $67,545 avg annual pay
 var RATE_FORECAST = 6.3;       // Fannie Mae Jan 2025 forecast, end of 2026
 var RATE_NOW = 7.28;           // Freddie Mac PMMS, Oct 1 2026
 
@@ -259,12 +250,11 @@ function money(x) {
 }
 
 function update() {
-  var workers = document.getElementById("earner2").checked ? 2 : 1;
   var hasMortgage = document.getElementById("mortgage").checked;
   var loan = parseFloat(document.getElementById("loan").value.replace(/[^0-9.]/g, "")) || 0;
 
   var mortgageCost = hasMortgage ? 12 * (payment(loan, RATE_NOW) - payment(loan, RATE_FORECAST)) : 0;
-  var costs = GAS_DIESEL + TARIFFS + WAGE_PER_WORKER * workers + mortgageCost;
+  var costs = GAS_DIESEL + TARIFFS + mortgageCost;
   var net = REFUND_BOOST - costs;
 
   var text = "Your extra refund: <b>+" + money(REFUND_BOOST) + "</b>. Your extra costs: <b>&minus;" +
@@ -274,7 +264,6 @@ function update() {
   document.getElementById("calc-out").innerHTML = text;
 }
 
-document.getElementById("earner2").onchange = update;
 document.getElementById("mortgage").onchange = update;
 document.getElementById("loan").oninput = update;
 update();
