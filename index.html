@@ -215,6 +215,10 @@ function drawMortgageChart() {
   var act = MORTGAGE_WEEKLY.map(function (p) { return x(p[0]) + "," + y(p[1]); }).join(" ");
   svg += '<polyline points="' + act + '" fill="none" stroke="#335577" stroke-width="2"/>';
   var last = MORTGAGE_WEEKLY[MORTGAGE_WEEKLY.length - 1];
+  // Iran war began Sat Feb 28, 2026. Mark the last weekly reading before it.
+  var war = ["2026-02-26", 5.98];
+  svg += '<circle cx="' + x(war[0]) + '" cy="' + y(war[1]) + '" r="4" fill="#cc6633" stroke="#fff" stroke-width="2"/>';
+  svg += '<text x="' + x(war[0]) + '" y="' + (y(war[1]) + 18) + '" text-anchor="middle" fill="#333" font-weight="bold">Iran war begins, Feb 28</text>';
   svg += '<circle cx="' + x(last[0]) + '" cy="' + y(last[1]) + '" r="4" fill="#cc6633" stroke="#fff" stroke-width="2"/>';
   svg += '<text x="' + (x(last[0]) + 7) + '" y="' + (y(last[1]) + 4) + '" fill="#333" font-weight="bold">' + last[1] + '% now</text>';
   svg += '<text x="' + (W - R + 4) + '" y="' + (y(6.3) + 4) + '" fill="#666">6.3% forecast</text>';
