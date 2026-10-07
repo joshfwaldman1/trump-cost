@@ -74,14 +74,6 @@ table.ledger td.amt { text-align: right; white-space: nowrap; font-family: "Cour
 tr.gain td { background: #eef6ea; }
 tr.total td { background: #fbeee4; font-weight: bold; }
 .small { font-size: 11px; color: #666; }
-.calc {
-  background: #fffbe6;
-  border: 1px dashed #d4c27a;
-  padding: 10px 12px;
-  margin: 14px 0;
-}
-.calc label { display: block; margin: 4px 0; }
-.calc input[type=text] { width: 80px; font: 12px "Courier New", monospace; }
 .bigline {
   font: bold 16px Georgia, serif;
   background: #335577;
@@ -185,32 +177,6 @@ h4.chart-title { margin: 18px 0 4px; font: bold 12px Verdana, sans-serif; color:
   <p class="small" style="margin-top:2px">Source: Freddie Mac Primary Mortgage Market Survey. Forecast line connects
   Fannie Mae's stated year-end points (about 6.5% at end-2025, 6.3% at end-2026).</p>
 
-  <p><b>And if you bought a house this year, it gets worse.</b> In January 2025,
-  <a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae</a>
-  forecast mortgage rates would end 2026 near 6.3%. The
-  <a href="https://www.freddiemac.com/pmms">Freddie Mac</a> 30-year rate was <b>7.28%</b> on October 1, 2026.
-  That is a full percentage point higher. On a $330,000 loan (80% of a typical $410,000 home) the monthly
-  payment is about <b>$215 higher</b>, or <b>$2,583 a year</b>. About 4 million households with adjustable-rate
-  mortgages are paying the higher rates too, even though they aren't buying or refinancing.</p>
-
-  <div class="calc">
-    <b>Do your own math</b>
-    <label><input type="checkbox" id="mortgage"> We took out a mortgage this year</label>
-    <label style="margin-left:20px">Loan amount: $<input type="text" id="loan" value="330000"></label>
-    <p style="margin:8px 0 0" id="calc-out"></p>
-  </div>
-
-  <p><b>A note on the mortgage line.</b> Higher rates are partly the war and partly the deficit. The
-  administration's answer, from Kevin Hassett and others, is that long-term rates rose because investors
-  expect faster growth.</p>
-
-  <p class="small"><b>Fine print.</b> The periods don't all match. Gas covers the war so far. Tariffs cover
-  2025 and 2026. The mortgage line is per year. The refund is one filing season. Nothing is double-counted, but
-  this is a rough household tally, not a single model.</p>
-
-  <div class="post-footer">
-    posted by Josh at 9:14 AM | <a href="#">0 comments</a> | <a href="#">permalink</a>
-  </div>
 
 </div>
 
@@ -243,42 +209,6 @@ h4.chart-title { margin: 18px 0 4px; font: bold 12px Verdana, sans-serif; color:
 </div>
 
 <script>
-// All inputs in one place so the numbers are easy to update.
-var REFUND_BOOST = 502;        // IRS: ($324.757B - $274.979B) / 99.138M refunds, through May 8
-var GAS_DIESEL = 945;          // Brown Iran War Energy Cost Tracker
-var TARIFFS = 1820;            // Tax Foundation, 2025 + 2026
-var RATE_FORECAST = 6.3;       // Fannie Mae Jan 2025 forecast, end of 2026
-var RATE_NOW = 7.28;           // Freddie Mac PMMS, Oct 1 2026
-
-function payment(loan, ratePct) {
-  // Standard 30-year fixed monthly payment.
-  var r = ratePct / 100 / 12, n = 360;
-  return loan * r / (1 - Math.pow(1 + r, -n));
-}
-
-function money(x) {
-  return "$" + Math.round(Math.abs(x)).toLocaleString("en-US");
-}
-
-function update() {
-  var hasMortgage = document.getElementById("mortgage").checked;
-  var loan = parseFloat(document.getElementById("loan").value.replace(/[^0-9.]/g, "")) || 0;
-
-  var mortgageCost = hasMortgage ? 12 * (payment(loan, RATE_NOW) - payment(loan, RATE_FORECAST)) : 0;
-  var costs = GAS_DIESEL + TARIFFS + mortgageCost;
-  var net = REFUND_BOOST - costs;
-
-  var text = "Your extra refund: <b>+" + money(REFUND_BOOST) + "</b>. Your extra costs: <b>&minus;" +
-    money(costs) + "</b>";
-  if (hasMortgage) text += " (including " + money(mortgageCost) + " a year in extra mortgage payments)";
-  text += ". You are <b>" + money(net) + " behind</b>.";
-  document.getElementById("calc-out").innerHTML = text;
-}
-
-document.getElementById("mortgage").onchange = update;
-document.getElementById("loan").oninput = update;
-update();
-
 // ---- Mortgage chart: plain inline SVG, no libraries ----
 var MORTGAGE_WEEKLY = [["2025-01-02",6.91],["2025-01-09",6.93],["2025-01-16",7.04],["2025-01-23",6.96],["2025-01-30",6.95],["2025-02-06",6.89],["2025-02-13",6.87],["2025-02-20",6.85],["2025-02-27",6.76],["2025-03-06",6.63],["2025-03-13",6.65],["2025-03-20",6.67],["2025-03-27",6.65],["2025-04-03",6.64],["2025-04-10",6.62],["2025-04-17",6.83],["2025-04-24",6.81],["2025-05-01",6.76],["2025-05-08",6.76],["2025-05-15",6.81],["2025-05-22",6.86],["2025-05-29",6.89],["2025-06-05",6.85],["2025-06-12",6.84],["2025-06-18",6.81],["2025-06-26",6.77],["2025-07-03",6.67],["2025-07-10",6.72],["2025-07-17",6.75],["2025-07-24",6.74],["2025-07-31",6.72],["2025-08-07",6.63],["2025-08-14",6.58],["2025-08-21",6.58],["2025-08-28",6.56],["2025-09-04",6.5],["2025-09-11",6.35],["2025-09-18",6.26],["2025-09-25",6.3],["2025-10-02",6.34],["2025-10-09",6.3],["2025-10-16",6.27],["2025-10-23",6.19],["2025-10-30",6.17],["2025-11-06",6.22],["2025-11-13",6.24],["2025-11-20",6.26],["2025-11-26",6.23],["2025-12-04",6.19],["2025-12-11",6.22],["2025-12-18",6.21],["2025-12-24",6.18],["2025-12-31",6.15],["2026-01-08",6.16],["2026-01-15",6.06],["2026-01-22",6.09],["2026-01-29",6.1],["2026-02-05",6.11],["2026-02-12",6.09],["2026-02-19",6.01],["2026-02-26",5.98],["2026-03-05",6.0],["2026-03-12",6.11],["2026-03-19",6.22],["2026-03-26",6.38],["2026-04-02",6.46],["2026-04-09",6.37],["2026-04-16",6.3],["2026-04-23",6.23],["2026-04-30",6.3],["2026-05-07",6.37],["2026-05-14",6.36],["2026-05-21",6.51],["2026-05-28",6.53],["2026-06-04",6.48],["2026-06-11",6.52],["2026-06-18",6.47],["2026-06-25",6.49],["2026-07-02",6.43],["2026-07-09",6.49],["2026-07-16",6.55],["2026-07-23",6.58],["2026-07-30",6.66],["2026-08-06",6.69],["2026-08-13",6.67],["2026-08-20",6.65],["2026-08-27",6.66],["2026-09-03",6.71],["2026-09-10",6.76],["2026-09-17",6.95],["2026-09-24",7.03],["2026-10-01",7.28]];  // Freddie Mac PMMS 30-year fixed, [date, rate]
 var FORECAST_PATH = [["2025-01-02", 6.91], ["2025-12-31", 6.5], ["2026-12-31", 6.3]];
