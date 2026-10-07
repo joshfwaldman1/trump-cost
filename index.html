@@ -5,114 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Refund Math</title>
 <style>
-/* Deliberately old-school: a 2005 Blogger-style template. */
-body {
-  margin: 0;
-  padding: 20px 0;
-  background: #e8e4d8;
-  font: 13px/1.5 Verdana, Geneva, Arial, sans-serif;
-  color: #333;
-}
-#outer {
-  width: 780px;
-  max-width: calc(100% - 32px);
-  margin: 0 auto;
-  background: #fff;
-  border: 1px solid #b8b29c;
-}
-#header {
-  background: #335577;
-  border-bottom: 4px solid #cc6633;
-  padding: 22px 24px 18px;
-  color: #fff;
-}
-#header h1 {
-  margin: 0;
-  font: bold 30px Georgia, "Times New Roman", serif;
-  letter-spacing: -1px;
-}
-#header h1 a { color: #fff; text-decoration: none; }
-#header p { margin: 4px 0 0; font-size: 12px; color: #cfdbe6; font-style: italic; }
+/* Plain: Times New Roman, black on white, no color. */
+body { margin: 0; padding: 20px 0; background: #fff; color: #000;
+  font: 16px/1.45 "Times New Roman", Times, serif; }
+#outer { width: 780px; max-width: calc(100% - 32px); margin: 0 auto; }
+#header { border-bottom: 2px solid #000; padding: 0 0 10px; }
+#header h1 { margin: 0; font-size: 32px; }
+#header h1 a { color: #000; text-decoration: none; }
+#header p { margin: 4px 0 0; font-style: italic; }
 #wrap { overflow: hidden; }
-#main { float: left; width: 530px; padding: 18px 20px 20px 24px; }
-#sidebar {
-  float: right;
-  width: 170px;
-  padding: 18px 12px;
-  margin: 0 10px 0 0;
-  font-size: 11px;
-  border-left: 1px dotted #b8b29c;
-}
-h2.date-header {
-  margin: 0 0 6px;
-  font: bold 11px Verdana, sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #999;
-}
-h3.post-title {
-  margin: 0 0 10px;
-  font: bold 20px Georgia, serif;
-  color: #cc6633;
-}
-a { color: #335577; }
-a:visited { color: #775533; }
-a:hover { color: #cc6633; }
-table.ledger {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 12px 0;
-  font-size: 12px;
-}
-table.ledger td, table.ledger th {
-  border: 1px solid #ccc;
-  padding: 5px 7px;
-  vertical-align: top;
-}
-table.ledger th { background: #f0ede2; text-align: left; }
-table.ledger td.amt { text-align: right; white-space: nowrap; font-family: "Courier New", monospace; font-size: 13px; }
-tr.gain td { background: #eef6ea; }
-tr.total td { background: #fbeee4; font-weight: bold; }
-.small { font-size: 11px; color: #666; }
-.bigline {
-  font: bold 16px Georgia, serif;
-  background: #335577;
-  color: #fff;
-  padding: 10px 12px;
-  margin: 14px 0;
-}
-h4.chart-title { margin: 18px 0 4px; font: bold 12px Verdana, sans-serif; color: #333; }
-#mchart { position: relative; border: 1px solid #ccc; background: #fcfbf7; }
+#main { float: left; width: 560px; padding: 16px 0; }
+#sidebar { float: right; width: 180px; padding: 16px 0; font-size: 14px; }
+h2.date-header { margin: 0 0 4px; font-size: 13px; font-weight: normal; text-transform: uppercase; letter-spacing: 1px; }
+h3.post-title { margin: 0 0 10px; font-size: 22px; }
+a, a:visited, a:hover { color: #000; }
+table.ledger { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+table.ledger td, table.ledger th { border: 1px solid #000; padding: 5px 7px; vertical-align: top; text-align: left; }
+table.ledger td.amt { text-align: right; white-space: nowrap; }
+tr.total td { font-weight: bold; }
+.small { font-size: 13px; }
+.bigline { font-size: 18px; font-weight: bold; border-top: 1px solid #000; border-bottom: 1px solid #000; padding: 8px 0; margin: 14px 0; }
+h4.chart-title { margin: 18px 0 4px; font-size: 15px; }
+#mchart { position: relative; border: 1px solid #000; }
 #mchart svg { display: block; width: 100%; height: auto; }
-#mtip { position: absolute; pointer-events: none; background: #ffffe1; border: 1px solid #999;
-  font: 11px Verdana, sans-serif; padding: 2px 5px; white-space: nowrap; display: none; }
-.post-footer {
-  border-top: 1px dotted #b8b29c;
-  margin-top: 18px;
-  padding-top: 6px;
-  font-size: 11px;
-  color: #999;
-}
-#sidebar h4 {
-  margin: 14px 0 4px;
-  font: bold 11px Verdana, sans-serif;
-  text-transform: uppercase;
-  color: #cc6633;
-  border-bottom: 1px solid #e0dccf;
-}
-#sidebar h4:first-child { margin-top: 0; }
-#sidebar ul { margin: 0; padding: 0 0 0 14px; }
-#footer {
-  clear: both;
-  text-align: center;
-  font-size: 10px;
-  color: #999;
-  padding: 10px;
-  border-top: 1px solid #e0dccf;
-}
+#mtip { position: absolute; pointer-events: none; background: #fff; border: 1px solid #000;
+  font-size: 13px; padding: 2px 5px; white-space: nowrap; display: none; }
+#sidebar h4 { margin: 0 0 4px; font-size: 14px; text-transform: uppercase; border-bottom: 1px solid #000; }
+#sidebar h4 + p, #sidebar h4 + ul { margin-bottom: 14px; }
+#sidebar ul { margin-top: 0; padding: 0 0 0 16px; }
+#footer { clear: both; text-align: center; font-size: 12px; padding: 10px; border-top: 1px solid #000; }
 @media (max-width: 760px) {
-  #main, #sidebar { float: none; width: auto; border: 0; margin: 0; }
-  #sidebar { border-top: 1px dotted #b8b29c; padding: 14px 24px; }
+  #main, #sidebar { float: none; width: auto; }
 }
 </style>
 </head>
@@ -201,28 +124,28 @@ function drawMortgageChart() {
   var yMin = 5.5, yMax = 7.5;
   function x(d) { return L + (Date.parse(d) - t0) / (t1 - t0) * (W - L - R); }
   function y(v) { return T + (yMax - v) / (yMax - yMin) * (H - T - B); }
-  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" font-family="Verdana" font-size="10">';
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" font-family="Times New Roman, Times, serif" font-size="12">';
   for (var v = 5.5; v <= 7.5; v += 0.5) {
-    svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#e3e0d4"/>';
-    svg += '<text x="' + (L - 4) + '" y="' + (y(v) + 3) + '" text-anchor="end" fill="#666">' + v.toFixed(1) + '%</text>';
+    svg += '<line x1="' + L + '" x2="' + (W - R) + '" y1="' + y(v) + '" y2="' + y(v) + '" stroke="#ddd"/>';
+    svg += '<text x="' + (L - 4) + '" y="' + (y(v) + 3) + '" text-anchor="end" fill="#000">' + v.toFixed(1) + '%</text>';
   }
   ["2025-01-01", "2025-07-01", "2026-01-01", "2026-07-01"].forEach(function (d) {
     var label = (d.slice(5, 7) === "01" ? "Jan " : "Jul ") + d.slice(0, 4);
-    svg += '<text x="' + x(d) + '" y="' + (H - 8) + '" text-anchor="middle" fill="#666">' + label + '</text>';
+    svg += '<text x="' + x(d) + '" y="' + (H - 8) + '" text-anchor="middle" fill="#000">' + label + '</text>';
   });
   var fc = FORECAST_PATH.map(function (p) { return x(p[0]) + "," + y(p[1]); }).join(" ");
-  svg += '<polyline points="' + fc + '" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="5,4"/>';
+  svg += '<polyline points="' + fc + '" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="5,4"/>';
   var act = MORTGAGE_WEEKLY.map(function (p) { return x(p[0]) + "," + y(p[1]); }).join(" ");
-  svg += '<polyline points="' + act + '" fill="none" stroke="#335577" stroke-width="2"/>';
+  svg += '<polyline points="' + act + '" fill="none" stroke="#000" stroke-width="2"/>';
   var last = MORTGAGE_WEEKLY[MORTGAGE_WEEKLY.length - 1];
   // Iran war began Sat Feb 28, 2026. Mark the last weekly reading before it.
   var war = ["2026-02-26", 5.98];
-  svg += '<circle cx="' + x(war[0]) + '" cy="' + y(war[1]) + '" r="4" fill="#cc6633" stroke="#fff" stroke-width="2"/>';
-  svg += '<text x="' + x(war[0]) + '" y="' + (y(war[1]) + 18) + '" text-anchor="middle" fill="#333" font-weight="bold">Iran war begins, Feb 28</text>';
-  svg += '<circle cx="' + x(last[0]) + '" cy="' + y(last[1]) + '" r="4" fill="#cc6633" stroke="#fff" stroke-width="2"/>';
-  svg += '<text x="' + (x(last[0]) + 7) + '" y="' + (y(last[1]) + 4) + '" fill="#333" font-weight="bold">' + last[1] + '% now</text>';
-  svg += '<text x="' + (W - R + 4) + '" y="' + (y(6.3) + 4) + '" fill="#666">6.3% forecast</text>';
-  svg += '<line id="mcross" y1="' + T + '" y2="' + (H - B) + '" stroke="#999" display="none"/>';
+  svg += '<circle cx="' + x(war[0]) + '" cy="' + y(war[1]) + '" r="4" fill="#000" stroke="#fff" stroke-width="2"/>';
+  svg += '<text x="' + x(war[0]) + '" y="' + (y(war[1]) + 18) + '" text-anchor="middle" fill="#000" font-weight="bold">Iran war begins, Feb 28</text>';
+  svg += '<circle cx="' + x(last[0]) + '" cy="' + y(last[1]) + '" r="4" fill="#000" stroke="#fff" stroke-width="2"/>';
+  svg += '<text x="' + (x(last[0]) + 7) + '" y="' + (y(last[1]) + 4) + '" fill="#000" font-weight="bold">' + last[1] + '% now</text>';
+  svg += '<text x="' + (W - R + 4) + '" y="' + (y(6.3) + 4) + '" fill="#000">6.3% forecast</text>';
+  svg += '<line id="mcross" y1="' + T + '" y2="' + (H - B) + '" stroke="#000" display="none"/>';
   svg += '<rect id="mhit" x="' + L + '" y="' + T + '" width="' + (W - L - R) + '" height="' + (H - T - B) + '" fill="transparent"/>';
   svg += '</svg><div id="mtip"></div>';
   var box = document.getElementById("mchart");
