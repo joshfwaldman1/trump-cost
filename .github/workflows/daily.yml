@@ -17,8 +17,11 @@ jobs:
         with:
           python-version: "3.12"
       - run: python update_brown.py
+      - run: pip install pandas xlrd
+      - run: python war_energy.py   # EIA weekly war energy tally -> data/war_energy.json
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
-          git diff --quiet || (git commit -am "Daily Brown update" && git push)
+          git add data/
+          git diff --cached --quiet && git diff --quiet || (git commit -am "Daily update: Brown + EIA war energy" && git push)
