@@ -41,24 +41,24 @@
     },
     "jet": {
       "latest_price_date": "2026-10-14",
-      "total_billion": 32.5,
-      "per_household": 245,
-      "household_share_per_household": 99,
-      "latest_price": 4.637,
+      "total_billion": 31.2,
+      "per_household": 235,
+      "household_share_per_household": 95,
+      "latest_price": 4.562,
       "prewar_forecast_price": 1.8883,
       "by_month_per_household": {
-        "2026-03": 28,
-        "2026-04": 34,
-        "2026-05": 35,
-        "2026-06": 22,
-        "2026-07": 27,
-        "2026-08": 33,
-        "2026-09": 41,
-        "2026-10": 25
+        "2026-03": 27,
+        "2026-04": 33,
+        "2026-05": 34,
+        "2026-06": 20,
+        "2026-07": 26,
+        "2026-08": 31,
+        "2026-09": 40,
+        "2026-10": 24
       }
     }
   },
-  "gross_per_household": 1516,
-  "household_share_per_household": 913,
+  "gross_per_household": 1506,
+  "household_share_per_household": 909,
   "updated": "2026-10-19"
 }

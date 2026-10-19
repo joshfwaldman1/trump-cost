@@ -7,14 +7,15 @@ add up the days, and divide by US households.
 - Actual prices: EIA weekly retail gasoline and diesel (Monday survey). Each
   survey price is applied to the seven days starting that Monday.
 - Pre-war forecast: EIA Short-Term Energy Outlook, Feb 5 2026 (before the war),
-  monthly retail gasoline, retail diesel and jet fuel refiner price. Stored in
+  monthly retail gasoline, retail diesel and wholesale jet fuel price. Stored in
   data/eia_steo_feb2026_forecast.csv so the run doesn't need the STEO workbook.
 - Volumes: EIA Weekly Petroleum Status Report product supplied (week ending
   Friday) for finished gasoline, distillate and kerosene-type jet fuel. Days
   after the latest volume week reuse the average of the last four weeks.
-- Jet fuel: EIA has no weekly retail jet price, so the actual price is the
-  daily Gulf Coast jet spot price plus the Jan-Feb 2026 average gap between
-  EIA's monthly refiner price and that spot price (JET_REFINER_MARGIN).
+- Jet fuel: EIA has no weekly retail jet price, so the actual price is EIA's
+  daily Gulf Coast jet fuel spot price, compared directly with the forecast.
+  (The forecast series has run a few cents above Gulf Coast spot; leaving that
+  gap unadjusted lowers the jet total by about $10 per household.)
 
 The tally runs through the last day covered by the latest weekly retail
 survey. Jet fuel carries its latest daily spot price forward to that day.
@@ -40,9 +41,6 @@ WAR_START = date(2026, 3, 1)
 HOUSEHOLDS = 132.7e6  # Census ACS 2024 1-year, table DP02
 GALLONS_PER_BARREL = 42
 
-# EIA monthly jet refiner price minus Gulf Coast jet spot, Jan-Feb 2026 average
-# (Jan: 2.101 - 2.015 = 0.086, Feb: 2.328 - 2.265 = 0.063).
-JET_REFINER_MARGIN = 0.075
 
 # Share of each fuel's extra cost that reaches households.
 # Gasoline: households buy 801 gallons a year (BLS Consumer Expenditure Survey
@@ -116,7 +114,7 @@ def main() -> None:
 
     for fuel, (price_id, volume_id, forecast_column) in FUELS.items():
         if fuel == "jet":
-            prices = fetch_eia_series(price_id, frequency="d") + JET_REFINER_MARGIN
+            prices = fetch_eia_series(price_id, frequency="d")
         else:
             prices = retail_prices[fuel]
         volumes = fetch_eia_series(volume_id)
