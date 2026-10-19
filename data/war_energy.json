@@ -7,7 +7,7 @@
       "latest_price_date": "2026-10-12",
       "total_billion": 94.3,
       "per_household": 720,
-      "household_share_per_household": 626,
+      "household_share_per_household": 554,
       "latest_price": 4.331,
       "prewar_forecast_price": 2.8376,
       "by_month_per_household": {
@@ -43,7 +43,7 @@
       "latest_price_date": "2026-10-14",
       "total_billion": 32.5,
       "per_household": 248,
-      "household_share_per_household": 118,
+      "household_share_per_household": 100,
       "latest_price": 4.637,
       "prewar_forecast_price": 1.8883,
       "by_month_per_household": {
@@ -59,6 +59,6 @@
     }
   },
   "gross_per_household": 1535,
-  "household_share_per_household": 1014,
+  "household_share_per_household": 924,
   "updated": "2026-10-19"
 }

@@ -44,11 +44,21 @@ GALLONS_PER_BARREL = 42
 # (Jan: 2.101 - 2.015 = 0.086, Feb: 2.328 - 2.265 = 0.063).
 JET_REFINER_MARGIN = 0.075
 
-# Share of each fuel's extra cost that reaches households. These are the
-# internal reviewer's working assumptions (Oct 19 2026), not yet sourced:
-# gasoline ~87% household use; diesel and jet at the household share of final
-# demand (0.68) times 0.7 to-date pass-through.
-HOUSEHOLD_SHARE = {"gasoline": 0.87, "diesel": 0.68 * 0.7, "jet": 0.68 * 0.7}
+# Share of each fuel's extra cost that reaches households.
+# Gasoline: households buy 801 gallons a year (BLS Consumer Expenditure Survey
+#   2024, $2,645 / EIA 2024 average retail price $3.304) out of 1,037 gallons
+#   per household of total US use (EIA 2024 product supplied, 8.84M b/d / 131M) = 0.77.
+# Diesel: consumer spending's share of GDP (BEA, PCE / GDP, Q2 2026 = 0.68)
+#   times an assumed 0.7 share passed into prices so far.
+# Jet: commercial aviation's 85% of jet fuel (EIA, Today in Energy, Jul 8 2024;
+#   military/government and general aviation excluded) times the diesel rule.
+CONSUMER_SHARE_OF_GDP = 0.68
+PASS_THROUGH_TO_DATE = 0.7
+HOUSEHOLD_SHARE = {
+    "gasoline": 0.77,
+    "diesel": CONSUMER_SHARE_OF_GDP * PASS_THROUGH_TO_DATE,
+    "jet": 0.85 * CONSUMER_SHARE_OF_GDP * PASS_THROUGH_TO_DATE,
+}
 
 # Suffix "w" is the weekly history file, "d" the daily one.
 EIA_HISTORY_URL = "https://www.eia.gov/dnav/pet/hist_xls/{series}{frequency}.xls"
