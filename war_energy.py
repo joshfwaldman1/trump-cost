@@ -37,7 +37,7 @@ FORECAST_CSV = REPO_DIR / "data" / "eia_steo_feb2026_forecast.csv"
 OUTPUT_JSON = REPO_DIR / "data" / "war_energy.json"
 
 WAR_START = date(2026, 3, 1)
-HOUSEHOLDS = 131e6  # same divisor as Brown's tracker
+HOUSEHOLDS = 132.7e6  # Census ACS 2024 1-year, table DP02
 GALLONS_PER_BARREL = 42
 
 # EIA monthly jet refiner price minus Gulf Coast jet spot, Jan-Feb 2026 average
@@ -146,7 +146,7 @@ def main() -> None:
         }
 
     output = {
-        "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 131M households",
+        "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
         "war_start": WAR_START.isoformat(),
         "through": last_day.isoformat(),
         "fuels": results,
