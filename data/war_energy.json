@@ -5,9 +5,9 @@
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-10-19",
-      "total_billion": 98.0,
-      "per_household": 739,
-      "household_share_per_household": 569,
+      "total_billion": 98.2,
+      "per_household": 740,
+      "household_share_per_household": 570,
       "latest_price": 4.284,
       "prewar_forecast_price": 2.8376,
       "by_month_per_household": {
@@ -18,14 +18,14 @@
         "2026-07": 78,
         "2026-08": 94,
         "2026-09": 114,
-        "2026-10": 103
+        "2026-10": 104
       }
     },
     "diesel": {
       "latest_price_date": "2026-10-19",
-      "total_billion": 77.7,
-      "per_household": 585,
-      "household_share_per_household": 279,
+      "total_billion": 77.4,
+      "per_household": 583,
+      "household_share_per_household": 278,
       "latest_price": 6.276,
       "prewar_forecast_price": 3.3885,
       "by_month_per_household": {
@@ -36,15 +36,15 @@
         "2026-07": 56,
         "2026-08": 74,
         "2026-09": 98,
-        "2026-10": 91
+        "2026-10": 89
       }
     },
     "jet": {
-      "latest_price_date": "2026-10-14",
-      "total_billion": 32.6,
-      "per_household": 245,
-      "household_share_per_household": 99,
-      "latest_price": 4.562,
+      "latest_price_date": "2026-10-20",
+      "total_billion": 32.7,
+      "per_household": 246,
+      "household_share_per_household": 100,
+      "latest_price": 4.632,
       "prewar_forecast_price": 1.8883,
       "by_month_per_household": {
         "2026-03": 27,
@@ -54,11 +54,11 @@
         "2026-07": 26,
         "2026-08": 31,
         "2026-09": 40,
-        "2026-10": 34
+        "2026-10": 35
       }
     }
   },
   "gross_per_household": 1569,
-  "household_share_per_household": 947,
-  "updated": "2026-10-20"
+  "household_share_per_household": 948,
+  "updated": "2026-10-21"
 }
