@@ -49,58 +49,139 @@ h4.chart-title { margin: 18px 0 4px; font-size: 15px; }
 <div id="wrap">
 <div id="main">
 
-  <h2 class="date-header">Tuesday, October 06, 2026</h2>
-  <h3 class="post-title">Trump Policy Errors Have Cost the Typical American Household Well Over $2,000 So Far</h3>
+  <h2 class="date-header">Updated <span id="updated">October 23, 2026</span></h2>
+  <h3 class="post-title">Tariffs and the Iran War Have Cost the Average American Household <span id="title-total">$2,748</span> So Far</h3>
 
-  <p>In addition to <a href="https://www.conference-board.org/research/ceo-center-newsletters-alerts/CBO-releases-negative-fiscal-outlook-for-2026-2036">dramatically
-  worsening the U.S. fiscal outlook</a>, and disproportionately benefitting the highest earning households,
-  Trump&rsquo;s One Big Beautiful Bill delivered modest increases in the typical family&rsquo;s refund from 2025 to 2026.
-  The Trump Administration&rsquo;s price-increasing policy errors have cost that typical household five times as much
-  as that modest increase.</p>
+  <p>Since the U.S. put in place significantly higher tariffs in 2025 and the Iran war started in March 2026,
+  the average cost per U.S. household is <b><span id="intro-total">$2,748</span></b> more for fuel and tariffed goods,
+  measured through <span id="intro-through">October 23, 2026</span>.</p>
+
+  <p>The bigger tax refunds from the One Big Beautiful Bill (OBBBA) in early 2026 give back about $375 of that per household
+  (<a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS</a>: $49.8 billion more
+  in refunds through May 8, 2026, than a year earlier, divided by 132.7 million households).</p>
 
   <table class="ledger">
-    <tr><th>Item</th><th>Per household</th><th>Source</th></tr>
-    <tr class="gain">
-      <td>Increase in tax refund for avg household with a refund from 2025 to 2026</td>
-      <td class="amt">+$502</td>
-      <td class="small"><a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS</a>. $49.8 billion more in refunds, divided by 99.1 million refunds.</td>
+    <tr><th>Line</th><th>Per household</th><th>Period</th></tr>
+    <tr>
+      <td>Iran war: gasoline, diesel and jet fuel</td>
+      <td class="amt" id="row-war">&minus;$1,551</td>
+      <td>Mar 1 to <span id="war-through">Oct 23, 2026</span></td>
     </tr>
     <tr>
-      <td>Gas and diesel cost per household as a result of Iran war</td>
-      <td class="amt" id="row-gas">&minus;$1,085</td>
-      <td class="small"><a href="https://iranwarcost.watson.brown.edu/">Brown University Iran War Energy Cost Tracker</a>.</td>
-    </tr>
-    <tr>
-      <td>Tariffs, 2025 and 2026</td>
-      <td class="amt">&minus;$1,820</td>
-      <td class="small"><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/">Tax Foundation</a>. $1,000 in 2025. $820 in 2026.</td>
+      <td>Tariffs: higher consumer goods prices</td>
+      <td class="amt" id="row-tariffs">&minus;$1,197</td>
+      <td>Feb 2025 to <span id="tariff-through">Oct 23, 2026</span></td>
     </tr>
     <tr class="total">
-      <td>Net</td>
-      <td class="amt" id="row-net">&minus;$2,403</td>
+      <td>Total avg. cost to households from tariffs and the Iran war</td>
+      <td class="amt" id="row-total">&minus;$2,748</td>
       <td></td>
     </tr>
   </table>
 
+  <p class="small">We are generally using the total dollar figure divided by 132.7 million households
+  (<a href="https://data.census.gov/table/ACSDP1Y2024.DP02?q=households">Census</a>), a similar method as the
+  Brown University researchers and Moody&rsquo;s. Updated daily as new data come in.</p>
+
+  <h3 class="post-title">Iran war energy costs</h3>
+
+  <p>How much more did the U.S. pay for fuel than it would have without the war? For what fuel would have cost, I use
+  the Energy Information Administration&rsquo;s own <a href="https://www.eia.gov/outlooks/steo/archives/feb26.pdf">forecast
+  from February 5, 2026</a>, a few weeks before the war. EIA expected gas to peak around $3.06 this summer and fall to
+  $2.84 by October. Instead, it was <span id="gas-latest">$4.28 on October 19</span>.</p>
+
+  <p>For each day since March 1, I take the actual price minus EIA&rsquo;s pre-war forecast, and multiply by the gallons
+  the United States actually used. Prices come from EIA&rsquo;s
+  <a href="https://www.eia.gov/petroleum/gasdiesel/">weekly retail surveys</a> for gasoline and diesel. EIA doesn&rsquo;t
+  publish a retail jet fuel price, so I use its
+  <a href="https://www.eia.gov/dnav/pet/hist/eer_epjk_pf4_rgc_dpgD.htm">daily Gulf Coast spot price</a>. Gallons come from
+  EIA&rsquo;s <a href="https://www.eia.gov/petroleum/supply/weekly/">weekly consumption data</a>.</p>
+
+  <p>We are using a relatively crude method by assuming 100% passthrough (e.g. assuming business fuel costs ultimately
+  reach U.S. households). Some costs may instead be absorbed in business margins or passed through after the period
+  measured. The figure measures the scale of the fuel-cost increase, rather than verified household spending.
+  Brown&rsquo;s Iran war tracker and Moody&rsquo;s count fuel costs the same way.</p>
+
+  <table class="ledger">
+    <tr><th>Fuel</th><th>Extra cost since start of Iran conflict relative to EIA forecasts</th><th>Per household (assuming 100% passthrough)</th></tr>
+    <tr><td>Gasoline</td><td class="amt" id="gasoline-billion">$97.1 billion</td><td class="amt" id="gasoline-hh">$732</td></tr>
+    <tr><td>Diesel</td><td class="amt" id="diesel-billion">$76.5 billion</td><td class="amt" id="diesel-hh">$576</td></tr>
+    <tr><td>Jet fuel</td><td class="amt" id="jet-billion">$32.3 billion</td><td class="amt" id="jet-hh">$243</td></tr>
+    <tr class="total"><td>Total</td><td class="amt" id="fuel-billion">$205.9 billion</td><td class="amt" id="fuel-hh">$1,551</td></tr>
+  </table>
+
+  <p>For comparison, <a href="https://iranwarcost.watson.brown.edu/">Brown&rsquo;s tracker</a> is at
+  <span id="brown">$1,085</span> for gas and diesel, and
+  <a href="https://www.cnn.com/2026/10/13/economy/iran-war-oil-gas-prices-inflation">Moody&rsquo;s</a> puts energy at
+  about $1,100. Our figure is higher largely because it includes jet fuel, and because EIA expected diesel prices to fall
+  before the war, while Brown uses average prices from before the war instead of the EIA forecast.</p>
+
+  <h3 class="post-title">Tariffs</h3>
+
+  <p>For tariffs, our calculation relies on a <a href="https://www.newyorkfed.org/research/staff_reports/sr1201">new report
+  from the New York Federal Reserve</a> from October 6. We use NY Fed researchers&rsquo; estimated tariff effects on goods
+  price levels and multiply those effects by BEA consumer spending data (PCE) over the period since early 2025. The
+  authors find tariffs raised prices on 67 categories of consumer goods by 2.9% as of February 2026. After the Supreme
+  Court struck down the IEEPA tariffs, the NY Fed
+  <a href="https://libertystreeteconomics.newyorkfed.org/?p=45914">projected</a> that the increase in goods prices relative
+  to the no-Trump-tariffs counterfactual fell to about 2.1% in August and sits around 2.2% in October.</p>
+
+  <p>I apply that price increase to what Americans spend each month on those goods, and add it up from February 2025 to
+  today. The 67 categories cover 75% of consumer goods spending (not counting gas or restaurant meals). I only count the
+  impact for that 75% of goods NY Fed analyzed, and zero out the other 25%. Because the spending we observe already
+  includes the tariff increase, I convert the NY Fed&rsquo;s price effect (p, a percent change in the price level) into
+  the share of spending that is tariff cost using p/(1+p) instead of p. That results in a cost of about
+  <span id="tariff-round">$1,200</span> per household (<span id="tariff-split">$664 measured through February 2026 and $533 from the NY Fed&rsquo;s projected path since then</span>). This is the estimated extra cost of buying the goods
+  households actually bought, including the NY Fed&rsquo;s projected effects after February 2026. The 75% coverage share
+  comes from 2022 CPI weights, so applying it to today&rsquo;s spending is a rough estimate. BEA spending data run through
+  <span id="pce-month">August 2026</span>, so later months use that month&rsquo;s spending. While the underlying model
+  comes from the New York Fed&rsquo;s published report, these calculations are the authors&rsquo; own and are not
+  associated with the New York Federal Reserve Bank.</p>
+
+  <p><b>This is also on the low end of estimates!</b> The conservative leaning Tax Foundation puts the total 2025 and 2026
+  cost for the average household at around $1,800 total
+  (<a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/">Tax Foundation</a>: $1,000 in 2025
+  and $820 in 2026).</p>
+
+  <h3 class="post-title">What&rsquo;s not included</h3>
+  <ul>
+    <li><b>Military costs.</b> Moody&rsquo;s puts military costs at $360 per household, e.g., total cost of the campaign
+    so far divided by number of total households. But we are excluding these costs because they don&rsquo;t show up in
+    family budgets this year.</li>
+    <li><b>Food.</b> The war disrupted fertilizer shipments from the Gulf, and USDA has raised its 2026 grocery inflation
+    forecast.</li>
+    <li><b>Higher interest rates.</b> These mostly hit people who buy or refinance a home. Mortgage rates are
+    <span id="mort-now">7.25%</span>, up from 6.05% in February. On a $330,000 loan, that&rsquo;s about
+    <span id="mort-cost">$3,150</span> more a year. Moody&rsquo;s estimates higher rates have cost the economy about $540
+    per household.</li>
+  </ul>
 
   <h4 class="chart-title">30-year mortgage rate, daily, since Jan 2025: actual vs. Fannie Mae forecast</h4>
   <div id="mchart"></div>
   <p class="small" style="margin-top:2px">Solid line: actual rate, Optimal Blue 30-year fixed index from FRED, updated daily. Dotted line: Fannie Mae's January 2025 forecast.
   It called for 6.5% at the end of 2025 and 6.3% at the end of 2026.</p>
 
-
 </div>
 
 <div id="sidebar">
   <h4>Sources</h4>
   <ul>
+    <li><a href="https://www.eia.gov/outlooks/steo/archives/feb26.pdf">EIA Short-Term Energy Outlook, Feb 2026</a></li>
+    <li><a href="https://www.eia.gov/petroleum/gasdiesel/">EIA weekly retail gas and diesel prices</a></li>
+    <li><a href="https://www.eia.gov/dnav/pet/hist/eer_epjk_pf4_rgc_dpgD.htm">EIA Gulf Coast jet fuel spot price</a></li>
+    <li><a href="https://www.eia.gov/petroleum/supply/weekly/">EIA Weekly Petroleum Status Report</a></li>
+    <li><a href="https://www.newyorkfed.org/research/staff_reports/sr1201">Amiti, Heise and Weinstein, NY Fed Staff Report 1201</a></li>
+    <li><a href="https://libertystreeteconomics.newyorkfed.org/?p=45914">Liberty Street Economics, Oct 6 2026</a></li>
+    <li><a href="https://fred.stlouisfed.org/series/PCEND">BEA consumer spending (FRED)</a></li>
+    <li><a href="https://data.census.gov/table/ACSDP1Y2024.DP02?q=households">Census households</a></li>
     <li><a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS filing stats</a></li>
     <li><a href="https://iranwarcost.watson.brown.edu/">Brown war cost tracker</a></li>
     <li><a href="https://taxfoundation.org/research/all/federal/trump-tariffs-trade-war/">Tax Foundation tariffs</a></li>
     <li><a href="https://fanniemae.com/research-and-insights/forecast/economic-developments-january-2025">Fannie Mae, Jan 2025</a></li>
     <li><a href="https://fred.stlouisfed.org/series/OBMMIC30YF">Optimal Blue mortgage rate (FRED)</a></li>
   </ul>
-
+  <h4>Code and data</h4>
+  <p><a href="https://github.com/joshfwaldman1/trump-cost">github.com/joshfwaldman1/trump-cost</a></p>
 </div>
 </div>
 

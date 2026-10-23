@@ -18,7 +18,7 @@ add up the days, and divide by US households.
   gap unadjusted lowers the jet total by about $10 per household.)
 
 The tally runs through the last day covered by the latest weekly retail
-survey. Jet fuel carries its latest daily spot price forward to that day.
+survey, or today if that is earlier. Jet fuel carries its latest daily spot price forward to that day.
 Writes data/war_energy.json.
 
 Run weekly (EIA posts retail prices Monday evening and volumes Wednesday).
@@ -111,6 +111,7 @@ def main() -> None:
     # Every fuel is tallied through the end of the week both retail series cover.
     retail_prices = {fuel: fetch_eia_series(FUELS[fuel][0]) for fuel in ("gasoline", "diesel")}
     last_day = min(series.index[-1] for series in retail_prices.values()) + timedelta(days=6)
+    last_day = min(last_day, date.today())  # never count days that haven't happened yet
 
     for fuel, (price_id, volume_id, forecast_column) in FUELS.items():
         if fuel == "jet":
