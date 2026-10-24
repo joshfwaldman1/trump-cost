@@ -1,13 +1,13 @@
 {
   "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
   "war_start": "2026-03-01",
-  "through": "2026-10-23",
+  "through": "2026-10-24",
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-10-19",
-      "total_billion": 97.1,
-      "per_household": 732,
-      "household_share_per_household": 563,
+      "total_billion": 97.6,
+      "per_household": 736,
+      "household_share_per_household": 566,
       "latest_price": 4.284,
       "prewar_forecast_price": 2.8376,
       "by_month_per_household": {
@@ -18,14 +18,14 @@
         "2026-07": 78,
         "2026-08": 94,
         "2026-09": 114,
-        "2026-10": 96
+        "2026-10": 100
       }
     },
     "diesel": {
       "latest_price_date": "2026-10-19",
-      "total_billion": 76.5,
-      "per_household": 576,
-      "household_share_per_household": 274,
+      "total_billion": 76.9,
+      "per_household": 580,
+      "household_share_per_household": 276,
       "latest_price": 6.276,
       "prewar_forecast_price": 3.3885,
       "by_month_per_household": {
@@ -36,14 +36,14 @@
         "2026-07": 56,
         "2026-08": 74,
         "2026-09": 98,
-        "2026-10": 82
+        "2026-10": 86
       }
     },
     "jet": {
       "latest_price_date": "2026-10-20",
-      "total_billion": 32.3,
-      "per_household": 243,
-      "household_share_per_household": 98,
+      "total_billion": 32.5,
+      "per_household": 245,
+      "household_share_per_household": 99,
       "latest_price": 4.632,
       "prewar_forecast_price": 1.8883,
       "by_month_per_household": {
@@ -54,11 +54,11 @@
         "2026-07": 26,
         "2026-08": 31,
         "2026-09": 40,
-        "2026-10": 32
+        "2026-10": 34
       }
     }
   },
-  "gross_per_household": 1551,
-  "household_share_per_household": 935,
-  "updated": "2026-10-23"
+  "gross_per_household": 1561,
+  "household_share_per_household": 941,
+  "updated": "2026-10-24"
 }
