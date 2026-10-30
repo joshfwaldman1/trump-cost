@@ -1,13 +1,13 @@
 {
   "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
   "war_start": "2026-03-01",
-  "through": "2026-10-29",
+  "through": "2026-10-30",
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-10-26",
-      "total_billion": 100.1,
-      "per_household": 754,
-      "household_share_per_household": 581,
+      "total_billion": 100.6,
+      "per_household": 758,
+      "household_share_per_household": 584,
       "latest_price": 4.269,
       "prewar_forecast_price": 2.8376,
       "by_month_per_household": {
@@ -18,14 +18,14 @@
         "2026-07": 78,
         "2026-08": 94,
         "2026-09": 114,
-        "2026-10": 118
+        "2026-10": 122
       }
     },
     "diesel": {
       "latest_price_date": "2026-10-26",
-      "total_billion": 79.7,
-      "per_household": 600,
-      "household_share_per_household": 286,
+      "total_billion": 80.1,
+      "per_household": 604,
+      "household_share_per_household": 287,
       "latest_price": 6.352,
       "prewar_forecast_price": 3.3885,
       "by_month_per_household": {
@@ -36,13 +36,13 @@
         "2026-07": 56,
         "2026-08": 74,
         "2026-09": 98,
-        "2026-10": 106
+        "2026-10": 110
       }
     },
     "jet": {
       "latest_price_date": "2026-10-27",
-      "total_billion": 33.4,
-      "per_household": 252,
+      "total_billion": 33.6,
+      "per_household": 253,
       "household_share_per_household": 102,
       "latest_price": 4.444,
       "prewar_forecast_price": 1.8883,
@@ -54,11 +54,11 @@
         "2026-07": 26,
         "2026-08": 31,
         "2026-09": 40,
-        "2026-10": 41
+        "2026-10": 42
       }
     }
   },
-  "gross_per_household": 1606,
-  "household_share_per_household": 969,
-  "updated": "2026-10-29"
+  "gross_per_household": 1615,
+  "household_share_per_household": 973,
+  "updated": "2026-10-30"
 }
