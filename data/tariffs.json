@@ -1,11 +1,11 @@
 {
   "method": "NY Fed SR1201 price-level effect p, p/(1+p) x BEA goods ex energy spending, x 20.2/27.1 coverage, / 132.7M households",
   "start_month": "2025-02",
-  "through": "2026-10-30",
-  "total_billion": 160.9,
-  "per_household": 1212,
+  "through": "2026-10-31",
+  "total_billion": 161.1,
+  "per_household": 1214,
   "measured_per_household": 664,
-  "projected_per_household": 548,
+  "projected_per_household": 550,
   "latest_pce_month": "2026-09",
   "latest_price_effect_percent": 2.17,
   "by_month_per_household": {
@@ -29,7 +29,7 @@
     "2026-07": 64,
     "2026-08": 62,
     "2026-09": 63,
-    "2026-10": 62
+    "2026-10": 64
   },
-  "updated": "2026-10-30"
+  "updated": "2026-10-31"
 }
