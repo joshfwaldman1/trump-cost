@@ -112,7 +112,7 @@ def main() -> None:
         "fuel-hh": money(war_total),
         "tariff-round": money(int(round(tariffs["per_household"], -2))),
         "tariff-split": f"{money(tariffs['measured_per_household'])} measured through February 2026 and "
-                        f"{money(tariffs['projected_per_household'])} from the NY Fed&rsquo;s projected path since then",
+                        f"{money(tariffs['projected_per_household'])} after February 2026, using the NY Fed&rsquo;s projected price effects",
         "pce-month": f"{date.fromisoformat(tariffs['latest_pce_month'] + '-01'):%B %Y}",
     }
     for fuel in ("gasoline", "diesel", "jet"):
