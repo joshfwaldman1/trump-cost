@@ -1,13 +1,13 @@
 {
   "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
   "war_start": "2026-03-01",
-  "through": "2026-11-03",
+  "through": "2026-11-04",
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-11-02",
-      "total_billion": 102.7,
-      "per_household": 774,
-      "household_share_per_household": 596,
+      "total_billion": 103.3,
+      "per_household": 778,
+      "household_share_per_household": 599,
       "latest_price": 4.153,
       "prewar_forecast_price": 2.7514,
       "by_month_per_household": {
@@ -18,15 +18,15 @@
         "2026-07": 78,
         "2026-08": 94,
         "2026-09": 114,
-        "2026-10": 126,
-        "2026-11": 12
+        "2026-10": 127,
+        "2026-11": 16
       }
     },
     "diesel": {
       "latest_price_date": "2026-11-02",
-      "total_billion": 82.1,
-      "per_household": 619,
-      "household_share_per_household": 294,
+      "total_billion": 83.1,
+      "per_household": 626,
+      "household_share_per_household": 298,
       "latest_price": 6.292,
       "prewar_forecast_price": 3.4076,
       "by_month_per_household": {
@@ -37,16 +37,16 @@
         "2026-07": 56,
         "2026-08": 74,
         "2026-09": 98,
-        "2026-10": 114,
-        "2026-11": 11
+        "2026-10": 117,
+        "2026-11": 15
       }
     },
     "jet": {
-      "latest_price_date": "2026-10-27",
-      "total_billion": 34.3,
-      "per_household": 259,
+      "latest_price_date": "2026-11-03",
+      "total_billion": 34.4,
+      "per_household": 260,
       "household_share_per_household": 105,
-      "latest_price": 4.444,
+      "latest_price": 4.198,
       "prewar_forecast_price": 1.9063,
       "by_month_per_household": {
         "2026-03": 27,
@@ -57,11 +57,11 @@
         "2026-08": 31,
         "2026-09": 40,
         "2026-10": 43,
-        "2026-11": 4
+        "2026-11": 5
       }
     }
   },
-  "gross_per_household": 1652,
-  "household_share_per_household": 995,
-  "updated": "2026-11-03"
+  "gross_per_household": 1664,
+  "household_share_per_household": 1002,
+  "updated": "2026-11-04"
 }
