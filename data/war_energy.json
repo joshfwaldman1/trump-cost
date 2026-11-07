@@ -1,13 +1,13 @@
 {
   "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
   "war_start": "2026-03-01",
-  "through": "2026-11-06",
+  "through": "2026-11-07",
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-11-02",
-      "total_billion": 104.3,
-      "per_household": 786,
-      "household_share_per_household": 605,
+      "total_billion": 104.8,
+      "per_household": 790,
+      "household_share_per_household": 608,
       "latest_price": 4.153,
       "prewar_forecast_price": 2.7514,
       "by_month_per_household": {
@@ -19,14 +19,14 @@
         "2026-08": 94,
         "2026-09": 114,
         "2026-10": 127,
-        "2026-11": 23
+        "2026-11": 27
       }
     },
     "diesel": {
       "latest_price_date": "2026-11-02",
-      "total_billion": 84.1,
-      "per_household": 634,
-      "household_share_per_household": 302,
+      "total_billion": 84.6,
+      "per_household": 638,
+      "household_share_per_household": 304,
       "latest_price": 6.292,
       "prewar_forecast_price": 3.4076,
       "by_month_per_household": {
@@ -38,14 +38,14 @@
         "2026-08": 74,
         "2026-09": 98,
         "2026-10": 117,
-        "2026-11": 23
+        "2026-11": 27
       }
     },
     "jet": {
       "latest_price_date": "2026-11-03",
-      "total_billion": 34.8,
-      "per_household": 262,
-      "household_share_per_household": 106,
+      "total_billion": 34.9,
+      "per_household": 263,
+      "household_share_per_household": 107,
       "latest_price": 4.198,
       "prewar_forecast_price": 1.9063,
       "by_month_per_household": {
@@ -57,11 +57,11 @@
         "2026-08": 31,
         "2026-09": 40,
         "2026-10": 43,
-        "2026-11": 7
+        "2026-11": 9
       }
     }
   },
-  "gross_per_household": 1682,
-  "household_share_per_household": 1013,
-  "updated": "2026-11-06"
+  "gross_per_household": 1691,
+  "household_share_per_household": 1019,
+  "updated": "2026-11-07"
 }
