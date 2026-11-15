@@ -1,13 +1,13 @@
 {
   "method": "Actual EIA weekly prices minus EIA Feb 2026 STEO pre-war forecast, times EIA weekly volumes, divided by 132.7M households (Census ACS 2024)",
   "war_start": "2026-03-01",
-  "through": "2026-11-14",
+  "through": "2026-11-15",
   "fuels": {
     "gasoline": {
       "latest_price_date": "2026-11-09",
-      "total_billion": 108.1,
-      "per_household": 815,
-      "household_share_per_household": 627,
+      "total_billion": 108.5,
+      "per_household": 818,
+      "household_share_per_household": 630,
       "latest_price": 3.995,
       "prewar_forecast_price": 2.7514,
       "by_month_per_household": {
@@ -19,14 +19,14 @@
         "2026-08": 94,
         "2026-09": 114,
         "2026-10": 127,
-        "2026-11": 52
+        "2026-11": 55
       }
     },
     "diesel": {
       "latest_price_date": "2026-11-09",
-      "total_billion": 87.1,
-      "per_household": 657,
-      "household_share_per_household": 312,
+      "total_billion": 87.6,
+      "per_household": 660,
+      "household_share_per_household": 314,
       "latest_price": 6.127,
       "prewar_forecast_price": 3.4076,
       "by_month_per_household": {
@@ -38,14 +38,14 @@
         "2026-08": 74,
         "2026-09": 98,
         "2026-10": 116,
-        "2026-11": 46
+        "2026-11": 50
       }
     },
     "jet": {
       "latest_price_date": "2026-11-11",
-      "total_billion": 36.2,
-      "per_household": 272,
-      "household_share_per_household": 110,
+      "total_billion": 36.3,
+      "per_household": 274,
+      "household_share_per_household": 111,
       "latest_price": 4.035,
       "prewar_forecast_price": 1.9063,
       "by_month_per_household": {
@@ -57,11 +57,11 @@
         "2026-08": 31,
         "2026-09": 40,
         "2026-10": 44,
-        "2026-11": 18
+        "2026-11": 19
       }
     }
   },
-  "gross_per_household": 1744,
-  "household_share_per_household": 1049,
-  "updated": "2026-11-14"
+  "gross_per_household": 1752,
+  "household_share_per_household": 1055,
+  "updated": "2026-11-15"
 }
